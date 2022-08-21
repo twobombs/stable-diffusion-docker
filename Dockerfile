@@ -4,7 +4,7 @@ FROM twobombs/cudacluster:vulkan
 
 RUN wget https://repo.anaconda.com/miniconda/Miniconda3-py38_4.12.0-Linux-x86_64.sh && chmod 744 Miniconda3-py38_4.12.0-Linux-x86_64.sh && ./Miniconda3-py38_4.12.0-Linux-x86_64.sh -b
 RUN git clone https://github.com/CompVis/stable-diffusion.git
-# RUN cd stable-diffusion && conda env create -f environment.yaml && conda activate ld
+RUN cd stable-diffusion && /root/miniconda3/bin/conda env create -f environment.yaml && /root/miniconda3/bin/conda activate ld
 
 EXPOSE 5900 3389
 ENTRYPOINT /root/run
