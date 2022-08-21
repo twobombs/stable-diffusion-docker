@@ -6,7 +6,7 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-py38_4.12.0-Linux-x86_64
 
 RUN git clone https://github.com/CompVis/stable-diffusion.git
 RUN export PATH="/root/miniconda3/bin:$PATH" && cd stable-diffusion && conda env create -f environment.yaml && conda init bash && echo $SHELL
-RUN cd stable-diffusion && conda init bash && conda activate ldm
+RUN cd stable-diffusion && conda init bash && conda activate ldm && mkdir -p models/ldm/stable-diffusion-v1/ 
 
 EXPOSE 5900 3389
 ENTRYPOINT /root/run
