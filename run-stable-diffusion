@@ -1,1 +1,19 @@
+#!/bin/bash
 
+cd /stable-diffusion && /root/miniconda3/bin/conda init bash && /root/miniconda3/bin/conda activate ldm && mkdir -p models/ldm/stable-diffusion-v1/ 
+
+# WebUI@6080
+rm /tmp/.X0-lock && mv /var/log/*.log /root/logs/
+export LIBGL_ALWAYS_SOFTWARE=0&&Xvfb :0 -screen 0 1920x1080x24+32 -ac &
+service xrdp start &
+sleep 10
+export DISPLAY=:0&&startxfce4&	
+x0vncserver -display :0 -passwordfile /root/.vnc/passwd&
+/usr/share/novnc/utils/launch.sh --vnc localhost:5900&
+xrdp &
+
+# uptime fix+neofetch info
+export DISPLAY=:0&&xterm -e "xset s off" &
+export DISPLAY=:0&&xterm -e "neofetch && tail -f /dev/null" &
+
+tail -f /dev/null
