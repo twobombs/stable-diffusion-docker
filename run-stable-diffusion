@@ -1,6 +1,5 @@
 #!/bin/bash
-
-cd /stable-diffusion && /root/miniconda3/bin/conda init bash && /root/miniconda3/bin/conda activate ldm && mkdir -p models/ldm/stable-diffusion-v1/ 
+cd /stable-diffusion && /root/miniconda3/bin/conda init bash && /root/miniconda3/bin/conda activate ldm && mkdir -p models/ldm/stable-diffusion-v1/ &
 
 # WebUI@6080
 rm /tmp/.X0-lock && mv /var/log/*.log /root/logs/
