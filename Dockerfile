@@ -9,7 +9,7 @@ RUN export PATH="/root/miniconda3/bin:$PATH" && cd stable-diffusion && /root/min
 # RUN cd stable-diffusion && /root/miniconda3/bin/conda init bash && /root/miniconda3/bin/conda init zsh && /root/miniconda3/bin/conda activate ldm && mkdir -p models/ldm/stable-diffusion-v1/ 
 
 COPY run-stable-diffusion /root/run-stable-diffusion
-RUN chmod 744 run-stable-diffusion
+RUN chmod 744 /root/run-stable-diffusion
 
 EXPOSE 5900 3389
 ENTRYPOINT /root/run-stable-diffusion
