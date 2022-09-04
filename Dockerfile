@@ -10,8 +10,10 @@ RUN export PATH="/root/miniconda3/bin:$PATH" && cd stable-diffusion && /root/min
 
 RUN cd stable-diffusion && curl "https://www.googleapis.com/storage/v1/b/aai-blog-files/o/sd-v1-4.ckpt?alt=media" > sd-v1-4.ckpt
 
+COPY run-instance /root/run-instance
 COPY run-stable-diffusion /root/run-stable-diffusion
-RUN chmod 744 /root/run-stable-diffusion
+
+RUN chmod 744 /root/run-*
 
 EXPOSE 5900 3389
 ENTRYPOINT /root/run-stable-diffusion
