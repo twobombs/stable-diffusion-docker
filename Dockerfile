@@ -8,6 +8,8 @@ RUN git clone https://github.com/CompVis/stable-diffusion.git
 RUN export PATH="/root/miniconda3/bin:$PATH" && cd stable-diffusion && /root/miniconda3/bin/conda env create -f environment.yaml && /root/miniconda3/bin/conda init bash && echo $SHELL
 # RUN cd stable-diffusion && /root/miniconda3/bin/conda init bash && /root/miniconda3/bin/conda init zsh && /root/miniconda3/bin/conda activate ldm && mkdir -p models/ldm/stable-diffusion-v1/ 
 
+RUN cd stable-diffusion && curl "https://www.googleapis.com/storage/v1/b/aai-blog-files/o/sd-v1-4.ckpt?alt=media" > sd-v1-4.ckpt
+
 COPY run-stable-diffusion /root/run-stable-diffusion
 RUN chmod 744 /root/run-stable-diffusion
 
