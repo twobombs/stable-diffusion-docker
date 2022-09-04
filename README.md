@@ -1,9 +1,8 @@
-# Stable Diffusion in a Docker container
-### - contains WebUI with Integrated SD app & pre-fetched data
-### - will fetch ~ 1.5+ GB of data at first start 
-### - All their code has all rights reserved to Stability AI
-### - https://stability.ai/blog/stable-diffusion-announcement
-
+## Stable Diffusion in a Docker container
+- contains WebUI with Integrated SD app & pre-fetched data
+- will fetch ~ 1.5+ GB of data at first start 
+- All their code has all rights reserved to Stability AI
+- https://stability.ai/blog/stable-diffusion-announcement
 
 docker run --gpus all -p 6080:6080 --device=/dev/dri:/dev/dri -d twobombs/stable-diffusion-docker
 - go with your favorite browser to localhost:6080 and login with 00000000 
