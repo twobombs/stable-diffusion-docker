@@ -2,8 +2,8 @@
 
 cd /stable-diffusion
 
-conda init bash
-conda activate ldm
+/root/miniconda3/bin/conda init bash
+/root/miniconda3/bin/conda activate ldm
 
 python scripts/txt2img.py --prompt 'man playing theremin in hilbert space' --plms --ckpt sd-v1-4.ckpt --skip_grid --n_samples 1 
 
