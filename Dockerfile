@@ -13,7 +13,7 @@ RUN export PATH="/root/miniconda3/bin:$PATH" && cd stable-diffusion && /root/min
 # fetch prrrecious model
 RUN cd stable-diffusion && mkdir -p models/ldm/stable-diffusion-v1/ && curl "https://www.googleapis.com/storage/v1/b/aai-blog-files/o/sd-v1-4.ckpt?alt=media" > sd-v1-4.ckpt
 # HD addon
-RUN wget https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/realesrgan-ncnn-vulkan-20220424-ubuntu.zip && unzip realesrgan-ncnn-vulkan-20220424-ubuntu.zip -p /stable-diffusion
+RUN wget https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/realesrgan-ncnn-vulkan-20220424-ubuntu.zip && unzip realesrgan-ncnn-vulkan-20220424-ubuntu.zip
 RUN git clone https://github.com/jquesnelle/txt2imghd.git && cd txt2imghd && cp txt2imghd.py /stable-diffusion/scripts/txt2imghd.py
 # runscripts
 COPY run-instance /root/run-instance
