@@ -7,7 +7,7 @@ RUN apt install -y unzip
 RUN wget https://repo.anaconda.com/miniconda/Miniconda3-py38_4.12.0-Linux-x86_64.sh && chmod 744 Miniconda3-py38_4.12.0-Linux-x86_64.sh && ./Miniconda3-py38_4.12.0-Linux-x86_64.sh -b
 
 # create an environment for stable diffusion
-RUN git clone https://github.com/CompVis/stable-diffusion.git
+RUN git clone https://github.com/CompVis/stable-diffusion.git && cd stable-diffusion/scripts && sed -i 's/x_checked_image, has_nsfw_concept = check_safety(x_samples_ddim)/x_checked_image = x_samples_ddim/g' txt2img.py
 RUN export PATH="/root/miniconda3/bin:$PATH" && cd stable-diffusion && /root/miniconda3/bin/conda env create -f environment.yaml && /root/miniconda3/bin/conda init bash && echo $SHELL
 
 # fetch prrrecious models
