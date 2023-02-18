@@ -2,7 +2,7 @@ FROM twobombs/cudacluster:vulkan
 
 # we wants it, we needs it
 RUN apt install -y unzip
-RUN pip3 install -f torch torchvision
+RUN pip3 install -f torch torchvision opencv-python omegaconf invisible-watermark einops pytorch-lightning ldm
 
 # conda
 RUN wget https://repo.anaconda.com/miniconda/Miniconda3-py38_4.12.0-Linux-x86_64.sh && chmod 744 Miniconda3-py38_4.12.0-Linux-x86_64.sh && ./Miniconda3-py38_4.12.0-Linux-x86_64.sh -b
