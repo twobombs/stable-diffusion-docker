@@ -1,8 +1,5 @@
 #!/bin/bash
 
-mkdir /stable-diffusion/outputs
-mkdir /stable-diffusion/outputs/txt2img-samples
-mkdir /stable-diffusion/outputs/txt2img-samples/samples
 thunar /stable-diffusion/outputs/txt2img-samples/samples/ &
 
 tail -f /dev/null
