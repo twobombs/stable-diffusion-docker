@@ -10,9 +10,11 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-py38_4.12.0-Linux-x86_64
 # create an environment for stable diffusion
 RUN git clone https://github.com/CompVis/stable-diffusion.git && cd stable-diffusion/scripts && sed -i 's/x_checked_image, has_nsfw_concept = check_safety(x_samples_ddim)/x_checked_image = x_samples_ddim/g' txt2img.py
 RUN export PATH="/root/miniconda3/bin:$PATH" && cd stable-diffusion && /root/miniconda3/bin/conda env create -f environment.yaml && /root/miniconda3/bin/conda init bash && echo $SHELL
+RUN git clone https://github.com/Stability-AI/stablediffusion.git
 
 # fetch prrrecious models
-RUN cd stable-diffusion && mkdir -p models/ldm/stable-diffusion-v1/ && curl "https://www.googleapis.com/storage/v1/b/aai-blog-files/o/sd-v1-4.ckpt?alt=media" > sd-v1-4.ckpt && wget https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt
+RUN cd stable-diffusion && mkdir -p models/ldm/stable-diffusion-v1/ && curl "https://www.googleapis.com/storage/v1/b/aai-blog-files/o/sd-v1-4.ckpt?alt=media" > sd-v1-4.ckpt 
+RUN cd Stability-AI && wget https://huggingface.co/stabilityai/stable-diffusion-2-1-base/resolve/main/v2-1_512-ema-pruned.ckpt
 # HD addon
 RUN wget https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/realesrgan-ncnn-vulkan-20220424-ubuntu.zip && unzip realesrgan-ncnn-vulkan-20220424-ubuntu.zip -d stable-diffusion && chmod 755 /stable-diffusion/realesrgan-ncnn-vulkan
 RUN git clone https://github.com/jquesnelle/txt2imghd.git && cd txt2imghd && cp txt2imghd.py /stable-diffusion/scripts/txt2imghd.py
