@@ -20,6 +20,8 @@ RUN wget https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/reale
 RUN git clone https://github.com/jquesnelle/txt2imghd.git && cd txt2imghd && cp txt2imghd.py /stable-diffusion/scripts/txt2imghd.py
 # runscripts
 
+RUN mkdir /stable-diffusion/outputs /stable-diffusion/outputs/txt2img-samples /stable-diffusion/outputs/txt2img-samples/samples
+
 COPY run-instance /root/run-instance
 COPY run-stable-diffusion /root/run-stable-diffusion
 RUN chmod 744 /root/run-*
