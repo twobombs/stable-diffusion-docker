@@ -12,6 +12,12 @@ xrdp &
 # uptime fix+neofetch info
 export DISPLAY=:0&&xterm -e "xset s off" &
 export DISPLAY=:0&&xterm -e "neofetch && tail -f /dev/null" &
+
+cd /stable-diffusion
+/root/miniconda3/bin/conda init bash
+/root/miniconda3/bin/conda activate ldm
+python scripts/txt2img.py --prompt 'twins playing theremin in the deep field' --plms --ckpt sd-v1-4.ckpt --skip_grid --n_samples 1 
+
 export DISPLAY=:0&&xterm -e "bash /root/run-instance"
 
 # export DISPLAY=:0&&xterm -e "cd /stable-diffusion && conda activate ldm && python scripts/txt2img.py --prompt 'man playing theremin in hilbert space' --plms --ckpt sd-v1-4.ckpt --skip_grid --n_samples 1 && tail -f /dev/null" &
