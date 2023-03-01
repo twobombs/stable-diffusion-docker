@@ -13,7 +13,7 @@ RUN export PATH="/root/miniconda3/bin:$PATH" && cd stable-diffusion && /root/min
 RUN git clone https://github.com/Stability-AI/stablediffusion.git
 
 # fetch prrrecious models
-RUN cd stable-diffusion && mkdir -p models/ldm/stable-diffusion-v1/ && curl "https://www.googleapis.com/storage/v1/b/aai-blog-files/o/sd-v1-4.ckpt?alt=media" > sd-v1-4.ckpt 
+# RUN cd stable-diffusion && mkdir -p models/ldm/stable-diffusion-v1/ && curl "https://www.googleapis.com/storage/v1/b/aai-blog-files/o/sd-v1-4.ckpt?alt=media" > sd-v1-4.ckpt 
 RUN cd stablediffusion && wget https://huggingface.co/stabilityai/stable-diffusion-2-1-base/resolve/main/v2-1_512-ema-pruned.ckpt
 # HD addon
 RUN wget https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/realesrgan-ncnn-vulkan-20220424-ubuntu.zip && unzip realesrgan-ncnn-vulkan-20220424-ubuntu.zip -d stable-diffusion && chmod 755 /stable-diffusion/realesrgan-ncnn-vulkan
