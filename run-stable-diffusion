@@ -13,9 +13,15 @@ xrdp &
 export DISPLAY=:0&&xterm -e "xset s off" &
 export DISPLAY=:0&&xterm -e "neofetch && tail -f /dev/null" &
 
+# fetch new(er) model
+cd /stablediffusion
+if [ ! -f v2-1_512-ema-pruned.ckpt ]; then
+    wget https://huggingface.co/stabilityai/stable-diffusion-2-1-base/resolve/main/v2-1_512-ema-pruned.ckpt &
+fi
+
 cd /stable-diffusion
-/root/miniconda3/bin/conda init bash
-/root/miniconda3/bin/conda activate ldm
+conda init bash
+conda activate ldm
 python scripts/txt2img.py --prompt 'people playing theremin in the deep field' --plms --ckpt sd-v1-4.ckpt --skip_grid --n_samples 1 &
 
 export DISPLAY=:0&&xterm -e "bash /root/run-instance"
