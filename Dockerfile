@@ -20,7 +20,7 @@ RUN apt install -y python3.10-venv && apt clean all
 RUN cd generative-models && python3 -m venv .pt2 && source .pt2/bin/activate && pip3 install -r requirements/pt2.txt && pip3 install .
 
 # fetch prrrecious models
-RUN cd stable-diffusion && mkdir -p models/ldm/stable-diffusion-v1/ && curl "https://www.googleapis.com/storage/v1/b/aai-blog-files/o/sd-v1-4.ckpt?alt=media" > sd-v1-4.ckpt 
+# RUN cd stable-diffusion && mkdir -p models/ldm/stable-diffusion-v1/ && curl "https://www.googleapis.com/storage/v1/b/aai-blog-files/o/sd-v1-4.ckpt?alt=media" > sd-v1-4.ckpt 
 # RUN cd stablediffusion && wget https://huggingface.co/stabilityai/stable-diffusion-2-1-base/resolve/main/v2-1_512-ema-pruned.ckpt
 
 # HD addon
