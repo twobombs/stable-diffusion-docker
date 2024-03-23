@@ -1,5 +1,7 @@
 FROM twobombs/cudacluster:vulkan
 
+SHELL ["/bin/bash", "-c"]
+
 # we wants it, we needs it
 RUN apt update && apt install -y unzip git-lfs
 RUN pip3 install -f torch torchvision opencv-python omegaconf invisible-watermark einops pytorch-lightning ldm
