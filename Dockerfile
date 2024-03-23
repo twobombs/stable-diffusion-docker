@@ -14,6 +14,7 @@ RUN git clone --depth=1 https://github.com/Stability-AI/stablediffusion.git
 
 # create an enviroment for generative models
 RUN git clone --depth=1 https://github.com/Stability-AI/generative-models.git
+RUN apt install -y python3.10-venv && apt clean all
 RUN cd generative-models && python3 -m venv .pt2 && source .pt2/bin/activate && pip3 install -r requirements/pt2.txt && pip3 install .
 
 # fetch prrrecious models
